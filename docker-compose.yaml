@@ -1,0 +1,17 @@
+version: "3"
+
+networks:
+  async-aws_php:
+
+services:
+  async-aws_php_service:
+    build:
+      context: .
+      dockerfile: ./docker/php/Dockerfile
+    container_name: async-aws_php_container
+    ports:
+      - "9000:9000"
+    volumes:
+      - .:/var/www/project
+    networks:
+      - async-aws_php
